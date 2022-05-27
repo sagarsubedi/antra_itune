@@ -1,0 +1,130 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background: #7986cb;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar{
+  display: flex;
+  justify-content: center;
+  margin-top: 0px;
+  padding-top:80px;
+  background-color: #66BB6A;
+  height: 100px;
+}
+
+.searchbar{
+  /* border: 3px solid #32e17c; */
+  height: 40px;
+  width: max-content;
+  border-radius: 50px;
+  padding: 0 10px;
+  background: #2f3460;
+
+}
+
+.searchbar-btn{
+  color: #e84118;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #2f3460;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.searchbar-input{
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.5s;
+  line-height: 40px;
+  width: 0px;
+}
+
+.searchbar:hover > .searchbar-input{
+  width: 240px;
+}
+
+.results{
+  margin-top: 300px;
+}
+
+.results-stat{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.grid-container{
+  width: 80%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  row-gap: 30px;
+  column-gap:40px;
+}
+
+.album{
+  background: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 5px 5px 20px black;
+
+}
+
+.album-image{
+  width: 200px;
+  height: 200px;
+  border-radius: 3px;
+}
+
+
+.album-title{
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2f3460;
+}
+
+/* for spin */
+.loader {
+  border: 5px solid #f3f3f3;
+  /* Light grey */
+  border-top: 5px solid #3498db;
+  /* Blue */
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 2s linear infinite;
+  margin-left: 49.5%;
+  margin-top: -100px;
+  display: none;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
