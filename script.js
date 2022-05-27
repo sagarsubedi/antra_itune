@@ -11,7 +11,15 @@ inputField.addEventListener('keyup', function (event) {
 
 
 searchButton.addEventListener('click', function (e) {
-  const artistName = inputField.value
+
+  let artistName = inputField.value
+  artistName = artistName.trim()
+
+  if (artistName.length < 1) {
+    alert("Please enter a search term")
+    return
+  }
+
   const url = `https://itunes.apple.com/search?term=${artistName  }&media=music&entity=album&attribute=artistTerm&limit=200`
   document.querySelector(".loader").style.display = "block"
 
