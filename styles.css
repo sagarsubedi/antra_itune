@@ -128,3 +128,21 @@ body{
     transform: rotate(360deg);
   }
 }
+
+.load-more{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.load-more-btn{
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 16px;
+  display: none;
+}
