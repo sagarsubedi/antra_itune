@@ -3,7 +3,8 @@ const inputField = document.querySelector('#search')
 const searchButton = document.querySelector('#search-button')
 const loadButton = document.querySelector('.load-more-btn')
 let originalData
-let currentAlbumsNumber = 5
+let currentAlbumsNumber = 0
+
 const resultStat = document.createElement('h1')
 resultStat.classList.add("result-h1")
 
@@ -36,7 +37,9 @@ searchButton.addEventListener('click', function (e) {
     })
 })
 
+
 function displayAlbums(data) {
+  currentAlbumsNumber = 0
   document.querySelector(".loader").style.display = "none"
   let numberOfAlbums = data.length
 
@@ -47,8 +50,7 @@ function displayAlbums(data) {
   }
 
 
-  resultStat.innerHTML = `${currentAlbumsNumber}/${numberOfAlbums} albums found for "${inputField.value}"`
-  document.querySelector('.results-stat').appendChild(resultStat)
+
 
   if (document.querySelector('.grid-container')) {
     document.querySelector('.grid-container').remove()
@@ -59,7 +61,15 @@ function displayAlbums(data) {
   gridContainer.classList.add("grid-container")
   document.querySelector('.results').appendChild(gridContainer)
 
-    // dsisplaay first five albums
+  // if no results found
+  if (data.length == 0) {
+    resultStat.innerHTML = `No albums found for "${inputField.value}"`
+    document.querySelector('.results-stat').appendChild(resultStat)
+    loadButton.style.display = "none"
+    return
+  }
+  
+  // dsisplaay first five albums
   for (let i = 0; i < 5; i++) { 
     
     const albumDiv = document.createElement('div')
@@ -78,7 +88,11 @@ function displayAlbums(data) {
 
     
     document.querySelector('.grid-container').appendChild(albumDiv)
+    currentAlbumsNumber++
   }
+  
+  resultStat.innerHTML = `${currentAlbumsNumber}/${numberOfAlbums} albums found for "${inputField.value}"`
+  document.querySelector('.results-stat').appendChild(resultStat)
   
   // make the load button visible
  loadButton.style.display = "block"
